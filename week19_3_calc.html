@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            padding-top: 100px;
+            height: 100%;
+            background-color: rgb(39, 38, 38);
+            color: #2EE59D;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .input {
+            width: 100px;
+            height: 45px;
+            border-radius: 45px;
+            background: #2EE59D;
+            box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+            text-align: center;
+            margin: 20px 25px;
+            font-weight: 500;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .floating-button {
+            width: 100px;
+            height: 45px;
+            line-height: 45px;
+            border-radius: 45px;
+            margin: 100px 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            text-transform: uppercase;
+            text-align: center;
+            letter-spacing: 3px;
+            font-weight: 700;
+            color: black;
+            background: rgb(119, 240, 191);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+            transition: .3s;
+        }
+
+        .floating-button:hover {
+            background: #2EE59D;
+            box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+            color: white;
+            transform: translateY(-7px);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Calculator</h1>
+    <div>
+        <input type="text" placeholder="Первое число" id="firstNum" class="input">
+        <input type="text" placeholder="Второе число" id="secondNum" class="input">
+    </div>
+    <div>
+        <button class="floating-button" onclick="Calculator.sum();">+</button>
+        <button class="floating-button" onclick="Calculator.sub();">-</button>
+        <button class="floating-button" onclick="Calculator.mult();">*</button>
+        <button class="floating-button" onclick="Calculator.div();">/</button>
+        <button class="floating-button" onclick="delAll();">Del</button>
+    </div>
+    <input type="text" placeholder="Ответ" id="answer" class="input">
+
+    <script>
+
+        function delAll() {
+            document.getElementById("firstNum").value = "";
+            document.getElementById("secondNum").value = "";
+            document.getElementById("answer").value = "";
+        }
+
+        class Calculator {
+
+            static sum() {
+                let a = document.getElementById("firstNum").value;
+                let b = document.getElementById('secondNum').value;
+                return document.getElementById('answer').value = +a + +b;
+            }
+
+            static sub() {
+                let a = document.getElementById("firstNum").value;
+                let b = document.getElementById('secondNum').value;
+                return document.getElementById('answer').value = +a - +b;
+            }
+
+            static mult() {
+                let a = document.getElementById("firstNum").value;
+                let b = document.getElementById('secondNum').value;
+                return document.getElementById('answer').value = +a * +b;
+            }
+
+            static div() {
+                let a = document.getElementById("firstNum").value;
+                let b = document.getElementById('secondNum').value;
+                if (b != 0) {
+                    return document.getElementById('answer').value = +a / +b;
+                } else {
+                    return alert("На ноль делить нельзя!");
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
